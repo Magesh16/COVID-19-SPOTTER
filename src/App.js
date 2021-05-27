@@ -4,6 +4,7 @@ import { MenuItem, FormControl, Select, Card, CardContent } from "@material-ui/c
 import InfoBox from "./InfoBox";
 import Map from "./Map";
 import Table  from "./Table";
+import {sortData} from "./util";
 
 function App() {
   const [countries, setCountries] = useState([]);
@@ -15,7 +16,7 @@ function App() {
     fetch('https://disease.sh/v3/covid-19/all')
     .then(response => response.json())
     .then(data=>{
-      setCountryInfo(data)
+      setCountryInfo(data);
     });
   })
 
@@ -28,7 +29,9 @@ function App() {
             name: country.country,
             value: country.countryInfo.iso2,
           }));
-          setTableData(data);
+
+          const sortedData = sortData(data);
+          setTableData(sortedData);
           setCountries(countries);
         });
     };
