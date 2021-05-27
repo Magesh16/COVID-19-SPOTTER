@@ -1,18 +1,21 @@
-import React from 'react'
+
+import React from "react";
 import "./Table.css";
-function Table({countries}) {
-    return (
-        <div className='table'>
-            {countries.map(({country, cases}) =>(
-            <tr>
-                <td>{country}</td> 
-                <td>
-                <strong>{cases}</strong>
-                </td> 
-            </tr>
-            ))}
-        </div>
-    );
+import numeral from "numeral";
+
+function Table({ countries }) {
+  return (
+    <div className="table">
+      {countries.map(({ country, cases }) => (
+        <tr>
+          <td>{country}</td>
+          <td>
+            <strong>{numeral(cases).format("000,000")}</strong>
+          </td>
+        </tr>
+      ))}
+    </div>
+  );
 }
 
-export default Table
+export default Table;
