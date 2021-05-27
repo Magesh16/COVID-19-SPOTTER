@@ -4,16 +4,29 @@
 body{
   background-color:rgb(224, 219, 219);
 }
-
+.app{
+  display: flex;
+  justify-content: space-evenly;
+  padding:20px ;
+}
 
 .app_header{
   display:flex;
   align-items: center;
   margin-bottom: 20px;
   justify-content: space-between; 
-  
 }
+.app_left{
+  flex:0.9;
+}
+
 .app_stats{
   display: flex;
   justify-content: space-between;
+}
+
+@media (max-width :999px) {
+  .app{
+   flex-direction: column; 
+  }
 }
