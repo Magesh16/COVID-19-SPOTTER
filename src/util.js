@@ -65,3 +65,5 @@ export const showDataOnMap = (data, casesType) =>
       </Popup>
     </Circle>
   ));
+
+  
